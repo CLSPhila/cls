@@ -6,6 +6,77 @@
         weekStartMS = 0;
         weekEndMS = 0;
 
+function uploadFile(file, s3Data, url, urlUpload) {
+  // basic validation
+  var fileType = url.substring(url.lastIndexOf('.') + 1);
+  var startTime = Date.now();
+  var endTime = Date.now();
+  var xhr = new XMLHttpRequest();
+  xhr.upload.addEventListener("progress", updateProgress);
+  xhr.open('POST', urlUpload);
+  xhr.setRequestHeader('x-amz-acl', 'public-read');
+
+  var postData = new FormData();
+  for (key in s3Data.fields) {
+    postData.append(key, s3Data.fields[key]);
+  }
+  postData.append('file', file);
+  console.log(file);
+
+  function updateProgress(e) {
+    if (e.lengthComputable) {
+      var percentComplete = ((100 * e.loaded) / e.total).toFixed(2);
+      var percentCompleteShort = ((100 * e.loaded) / e.total).toFixed(0);
+      $("#doneupload").css('width', percentCompleteShort + '%').attr('aria-valuenow', percentCompleteShort).text(percentComplete + '%')
+    }
+  }
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200 || xhr.status === 204) {
+        endTime = Date.now();
+        $("#swalupload").html("File download should initiate soon. Additionally, file is available <a href=" + url + ">here</a> for 24 hrs (once page loads, save page as a .csv file)");
+      }
+      else {
+        $("#swalupload").html("Could not upload file, please refresh page.");
+      }
+    }
+  };
+  xhr.send(postData);
+}
+
+
+/*Function to get the temporary signed request from the Python app.
+  If request successful, continue to upload the file using this signed
+  request. */
+
+  function getSignedRequest(file, name, type) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/sign-s3?file-name=' + name + '&file-type=' + type);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          console.log("response form json dumps: ", response);
+          uploadFile(file, response.data, response.url, response.url_upload);
+        }
+        else {
+          $("#swalupload").html('ERROR: Could not upload to server');
+        }
+      }
+    };
+    xhr.send();
+  }
+
+
+  /* Function called when file input updated. If there is a file selected, then
+    start upload procedure by asking for a signed request from the app.
+   */
+    function initUpload(file, name, type) {
+      if (!file) {
+        return alert('No file selected.');
+      }
+      getSignedRequest(file, name, type);
+    }
         // On click of submit button start csv generation process
         $('#submitProcess').on('click', function (e) {
           var errString = "";
@@ -206,28 +277,31 @@
                 text: '<div id="swalupload" Upload progress: <br> <div class="progress"><div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar progress-bar-success" id="doneupload" role="progressbar" style="min-width: 2em">0%</div></div>',
                 type: "success",
                 html: 'true',
-                confirmButtonText: "Clear page and reload",
+                cancelButtonText: "Clear page and reload",
+                confirmButtonText: "Download File"
               },
               function(isConfirm){
-                if (isConfirm) {
+                if (!isConfirm) {
                   location.reload()
-                } 
+                } else {
+
+                  var csvContent = "data:text/csv;charset=utf-8,";
+                  csv.forEach(function (infoArray, index) {
+                    dataString = infoArray.join(",");
+                    csvContent += index < csv.length ? dataString + "\n" : dataString;
+                  });
+                  var encodedUri = encodeURI(csvContent);
+                  initUpload(csvContent, $("#filename").val(), 'csv');
+                  var link = document.createElement("a");
+                  link.setAttribute("href", encodedUri);
+                  link.setAttribute("download", "" + $("#filename").val() + ".csv");
+                  document.body.appendChild(link);
+                  link.click()
+                }
               });
               // $("#stats").text("Time taken: " + ((endTime - startTime) / 1000).toFixed(2) +
               //   "s for file size " + (fileSize / (1024 * 1024)).toFixed(2) + " MB")
               // lv.ProcessView()
-              var csvContent = "data:text/csv;charset=utf-8,";
-              csv.forEach(function (infoArray, index) {
-                dataString = infoArray.join(",");
-                csvContent += index < csv.length ? dataString + "\n" : dataString;
-              });
-              var encodedUri = encodeURI(csvContent);
-              initUpload(csvContent, $("#filename").val(), 'csv');
-              var link = document.createElement("a");
-              link.setAttribute("href", encodedUri);
-              link.setAttribute("download", "" + $("#filename").val() + ".csv");
-              document.body.appendChild(link);
-              link.click()
               return;
             }
 
