@@ -17,16 +17,16 @@ This app processes millions of Google Location data points into a CSV Files base
 ## Demos
 
 ### Tutorial for downloading your location data
-![](tutorial.gif)
+![](media/tutorial.gif)
 
 ### Uploading your location data
-![](upload.gif)
+![](media/upload.gif)
 
 ### Creating bounding boxes
-![](bounding_box.gif)
+![](media/bounding_box.gif)
 
 ### Submitting your data and creating CSV
-![](submit_csv.gif)
+![](media/submit_csv.gif)
 
 
 
