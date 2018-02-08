@@ -22,20 +22,30 @@
 				  <a class="btn btn-info" href="legal.html">Legal Thoughts</a>
                 </div>
 				<div class="row">
-					<h3>Why would someone ever use a tool like this?</h3>
-					<p>This is a tool intended for lawyers and advocates who represent clients in <a href="http://www.epi.org/publication/employers-steal-billions-from-workers-paychecks-each-year-survey-data-show-millions-of-workers-are-paid-less-than-the-minimum-wage-at-significant-cost-to-taxpayers-and-state-economies/" target="_blank">wage theft cases</a>. Unfortunately, many low-wage workers work for exploitative employers who fail to keep proper records of hours worked, pay owed, pay disbursed, etc...  For a worker who is not properly paid, this lack of records can make it very difficult to determine how much the worker should have been paid and thus the employer's liability to the employee.</p>
-					<p>An example: Many restaurant dishwashers earn a set amount of money each week, regardless of how many hours were worked.  Assume Worker makes $400/week as a dishwasher, but works variable hours.  Based on how busy the restaurant is on a given week, Worker works between 50 and 65 hours a week.</p>
-					<p>These types of variable hours are common in the restaurant industry (among many others). If Worker doesn't punch in and out when starting and finishing shifts, it is impossible to accurately determine what Worker is owed.  This is where the Location History Analyzer comes in handy.</p>
+					<h3>Practical instructions</h3>
+					<ul>
+						<li>Click on "Go Home"</li>
+						<li>Click on Instructions and read through how to download a json location file</li>
+						<li>Get permission from your client to download their json location file and then download their file</li>
+						<li>Use your client's file to generate a map of their locations</li>
+						<li>Put a box around each of their regular work locations</li>
+						<li>After the tool has analyzed their work schedule, download the generated CSV file and open it in excel</li>
+						<li>At this point you will have to work with the excel file to calculate potential amounts owed to your client.  The file will list all of the hours that the client had their phone at the boxed work locations.  It will summarize their hours on a weekly basis.</li>
+					</ul>
+					<h3>Who is this tool intended for?</h3>
+					<p>This is a tool intended for lawyers and advocates who represent clients in <a href="http://www.epi.org/publication/employers-steal-billions-from-workers-paychecks-each-year-survey-data-show-millions-of-workers-are-paid-less-than-the-minimum-wage-at-significant-cost-to-taxpayers-and-state-economies/" target="_blank">wage theft cases</a>. The about page gives more information.</p>
 				</div>
 				<div class="row">
-					<h3>How would Worker's lawyer use this tool?</h3>
-					<p>Worker will likely have a reasonable recollection about the average number of hours worked each week. Worker's phone, however, may have a more accurate "recollection" about Worker's weekly schedule. </p>
-					<p>If Worker uses google location tracking (this is more likely if Worker has an Android phone), Worker's lawyer can use this tool to get Worker's exact weekly hours at the restaurant, instead of an estimate of hours.  The tool's output can be introduced in court as evidence of what Worker is owed.</p>
-				</div>
-				<div class="row">
-					<h3>What are the Potential Pitfalls of This Tool?</h3>
-					<p>There are two main pitfalls of this tool.  The first is that the tool only works when location tracking was previously turned on AND when a worker brings her phone to work each day.  Any day where location history wasn't on or the phone was left at home is a day without tracking, which will make the results less helpful.  The second is that google location tracking uses both GPS and cell tower locations to determine an individual's location.  When cell towers are used, google only knows, generally, where the person is. This doesn't mean that the tool is useless, but it does mean that a person may appear to be 500 feet away from where he really was at any given time.  This isn't fatal, especially if a worker only goes to the vacinity of a workplace to work.  All locations near the workplace should be considered work.  But the if a worker lives near work or goes out socially near work, this tool will not be able to distinguish between work and non-work hours.</p>
+					<h3>What are the Limitations of This Tool?</h3>
+					<p>There are a number of potential limitations of this tool:</p>
+					<ul>
+						<li>The tool only works when location tracking has been enabled on a phone.  If a worker doesn't have location tracking enabled or only had it enabled for some of their worklife, it may have limited value.</li>
+						<li>If a worker doesn't always bring her phone to work or her phone regularly dies while at work, the location tracking will be of limited value</li>
+						<li>Phone location tracking uses a combination of GPS, cell tower location, and nearby wifi networks to track location.  These technologies all have limitations: GPS doesn't work in buildings or may be inaccurate in dense, tall cities.  Cell tower location information may only be able to pinpoint a general area where a phone may be.  </li>
+						<li>It is impossible for your phone to distinguish whether you are working or not.  If your phone is near your work, this tool will show you as 'working.'  If you live and work in the same location or if you frequently socialize very near your work, this tool will think that you are working when you are sleeping or socializing.</li>
+					</ul> 
 				</div>                
+					<p>None of these limitations are fatal&mdash;they can be overcome through testimony about how the worker uses her phone, when she carries it with her, whether she socializes or lives near work, etc...</p> 
 			</div>
 		  </body>
 		</html>
