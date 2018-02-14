@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map Upload - About</title>
+    <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- import basic jquery + bootstrap --> 
+        <script src="static/scripts/jquery.min.js"></script>
+        <link href="static/styles/bootstrap.min.css" rel="stylesheet">
+          <script src="static/scripts/bootstrap.min.js"></script>
+
+          <link rel="stylesheet" type="text/css" href="static/styles/main.css">
+          </head>
+          <body>
+            <div class="container-fluid">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+                  <br>
+                  <a class="btn btn-info" href="index.html">Go Home</a>
+				  <a class="btn btn-info" href="about.html">About</a>
+				  <a class="btn btn-info" href="how.html">How to Use</a>
+				  <a class="btn btn-info" href="legal.html">Legal Thoughts</a>
+                </div>
+				<div class="row">
+					<h3>Practical instructions</h3>
+					<ul>
+						<li>Click on "Go Home"</li>
+						<li>Click on Instructions and read through how to download a json location file</li>
+						<li>Get permission from your client to download their json location file and then download their file</li>
+						<li>Use your client's file to generate a map of their locations</li>
+						<li>Put a box around each of their regular work locations</li>
+						<li>After the tool has analyzed their work schedule, download the generated CSV file and open it in excel</li>
+						<li>At this point you will have to work with the excel file to calculate potential amounts owed to your client.  The file will list all of the hours that the client had their phone at the boxed work locations.  It will summarize their hours on a weekly basis.</li>
+					</ul>
+					<h3>Who is this tool intended for?</h3>
+					<p>This is a tool intended for lawyers and advocates who represent clients in <a href="http://www.epi.org/publication/employers-steal-billions-from-workers-paychecks-each-year-survey-data-show-millions-of-workers-are-paid-less-than-the-minimum-wage-at-significant-cost-to-taxpayers-and-state-economies/" target="_blank">wage theft cases</a>. The about page gives more information.</p>
+				</div>
+				<div class="row">
+					<h3>What are the Limitations of This Tool?</h3>
+					<p>There are a number of potential limitations of this tool:</p>
+					<ul>
+						<li>The tool only works when location tracking has been enabled on a phone.  If a worker doesn't have location tracking enabled or only had it enabled for some of their worklife, it may have limited value.</li>
+						<li>If a worker doesn't always bring her phone to work or her phone regularly dies while at work, the location tracking will be of limited value</li>
+						<li>Phone location tracking uses a combination of GPS, cell tower location, and nearby wifi networks to track location.  These technologies all have limitations: GPS doesn't work in buildings or may be inaccurate in dense, tall cities.  Cell tower location information may only be able to pinpoint a general area where a phone may be.  </li>
+						<li>It is impossible for your phone to distinguish whether you are working or not.  If your phone is near your work, this tool will show you as 'working.'  If you live and work in the same location or if you frequently socialize very near your work, this tool will think that you are working when you are sleeping or socializing.</li>
+					</ul> 
+				</div>                
+					<p>None of these limitations are fatal&mdash;they can be overcome through testimony about how the worker uses her phone, when she carries it with her, whether she socializes or lives near work, etc...</p> 
+			</div>
+		  </body>
+		</html>

@@ -16,7 +16,8 @@ body {
   margin: 0px;
   height: 100vh;
   z-index: -1;
-  overflow: hidden;
+  overflow-x: hidden;
+  /*overflow: hidden;*/
 }
 
 .btn {
@@ -46,11 +47,12 @@ body {
   overflow-x: hidden;
   overflow-y: scroll
 }
-
+/*
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
+/*    background: transparent;  /* optional: just make scrollbar invisible */
+/*}*/
+
 
 .notif {
   position: absolute;
@@ -128,6 +130,10 @@ h3 {
 
 p {
   font-size: 18px
+}
+
+li {
+	font-size: 18px
 }
 
 @media -sass-debug-info{filename{}line{font-family:\000037}}
