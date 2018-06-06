@@ -335,10 +335,9 @@ function parseFileToCSV(file, oboeInstance) {
       link.setAttribute("href", encodedUri);
       link.setAttribute("download", "" + $("#filename").val() + ".csv");
       document.body.appendChild(link);
-      console.log(boxes);
       swal(
         {
-          title: "Your file has been created",
+          title: "Your file has been created, buddy",
           type: "success",
           text: displayBoxesDiv(boxes),
           html: true,
