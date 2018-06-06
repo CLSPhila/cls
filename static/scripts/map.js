@@ -88,13 +88,18 @@ function createBox(name) {
       mymap.setView(L.latLng(lat, long), obj.zoomLevel);
     });
 
-    $(".deleteBox").on("click", function(e) {
-      var id = this.parentNode.parentNode.parentNode.id;
-      boxes[id].rectangle.editing.disable();
-      boxes[id].rectangle.remove();
-      delete boxes[id];
-      this.parentNode.parentNode.parentNode.remove();
-    });
+    $(".deleteBox")
+      .unbind("click")
+      .on("click", function(e) {
+        var id = this.parentNode.parentNode.parentNode.id;
+        console.log("deleting " + id);
+        console.log("from boxes: ");
+        console.log(boxes);
+        boxes[id].rectangle.editing.disable();
+        boxes[id].rectangle.remove();
+        delete boxes[id];
+        this.parentNode.parentNode.parentNode.remove();
+      });
 
     currentBox.bindPopup(name).openPopup();
     currentBox.editing.enable();
