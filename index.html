@@ -6,14 +6,14 @@
    <body>
       <meta charset="utf-8">
       <meta content="width=device-width, initial-scale=1.0" name="viewport">
-      <!-- import basic jquery + bootstrap --> 
+      <!-- import basic jquery + bootstrap -->
       <script src="static/scripts/lib/jquery.min.js"></script>
       <link href="static/styles/bootstrap.min.css" rel="stylesheet">
       <script src="static/scripts/lib/bootstrap.min.js"></script>
       <link href="static/styles/bootstrap-select.min.css" rel="stylesheet">
       <script src="static/scripts/lib/bootstrap-select.min.js"></script>
 
-      <!-- import leaflet scripts -->  
+      <!-- import leaflet scripts -->
       <link href="static/styles/leaflet.css" rel="stylesheet">
       <script src="static/scripts/lib/leaflet.js"></script>
 
@@ -22,16 +22,16 @@
       <script src="static/scripts/lib/simpleshape.js"></script>
       <script src="static/scripts/lib/rectangle.js"></script>
       <script src="static/scripts/lib/bootbox.min.js"></script>
-      
+
       <!-- import json parser -->
       <script src="static/scripts/lib/oboe.min.js"></script>
-      
+
       <!-- import time (moment) and sweet alert (swal) -->
       <script src="static/scripts/lib/moment.min.js"></script>
       <script src="static/scripts/lib/swal.js"></script>
       <link href="static/styles/swal.css" rel="stylesheet">
 
-      <!-- modal --> 
+      <!-- modal -->
       <link rel="stylesheet" type="text/css" href="static/styles/main.css">
 
       <div class="container-fluid">
@@ -42,36 +42,38 @@
                   <h2>An open source tool to quickly organize millions of Google location history points by bounding box into a single spreadsheet with weekly summaries. </h2>
                   <p> Concept by <span id="cls"><a>Community Legal Services</a></span> <br> Coded by <span id="hack4impact"> <a>Hack4Impact</a></span><br>
                   View the code source on <a href="https://github.com/hack4impact/cls" target="_blank">Github.com</a></p>
-      
+
 		            <div class="col-md-6">
 						<a class="btn btn-info" href="about.html" style="width: 100%">About</a>
 				    </div>
 					<div class="col-md-6">
-						<a class="btn btn-info" href="#upload-instructions-modal" data-toggle="modal" data-target="#upload-instructions-modal" style="width: 100%"><span onclick="sendEvent(1)">Instructions</span></a>      
+						<a class="btn btn-info" href="#upload-instructions-modal" data-toggle="modal" data-target="#upload-instructions-modal" style="width: 100%"><span onclick="sendEvent(1)">Instructions</span></a>
 					</div>
 				<p>&nbsp;</p>
 				<div class="col-md-6">
                   <button class="btn btn-success" id="step-0-cont" style="width: 100%">Get Started</button>
                 </div>
-      
+
                   <script>
-                    $('#step-0-cont').on('click', function() {
-                      $('#step-1').fadeIn(1000);
-                    });
-                    $('#cls').on('click', function() {
-                      swal({
-                        title: "About Community Legal Services",
-                        text: "Community Legal Services (CLS) provides free civil legal assistance to low-income Philadelphians, including victims of wage theft. In some of these cases, workers have no work records, making it difficult for the CLS laywer seeking damages for that employer to win back the full owed sum. In order to help these vulnerable workers seek recourse, this app creates a timeline of a person’s work hours at identified locations using their phone’s GPS location history. This processed schedule can then be presented as evidence in court."
-                      })
-                    })
-                    $('#hack4impact').on('click', function() {
-                      swal({
-                        title: "About Hack4Impact",
-                        text: "Hack4Impact (<a href='http://hack4impact.org'>http://hack4impact.org</a>) is a student-run nonprofit that works with other nonprofits to create socially impactful software. In Fall 2016, team members Abhinav Suri (Technical Lead), Krishna Bharathala (Product Manager), Santiago Buenahora, Rachel Hong, Katie Jiang, and Daniel Zhang worked with Community Legal Services on this application",
-                        html: true
-                      })
-                    })
-                  </script>
+                  $("#step-0-cont").on("click", function() {
+  $("#step-1").fadeIn(1000);
+});
+$("#cls").on("click", function() {
+  swal({
+    title: "About Community Legal Services",
+    text:
+      "Community Legal Services (CLS) provides free civil legal assistance to low-income Philadelphians, including victims of wage theft. In some of these cases, workers have no work records, making it difficult for the CLS laywer seeking damages for that employer to win back the full owed sum. In order to help these vulnerable workers seek recourse, this app creates a timeline of a person’s work hours at identified locations using their phone’s GPS location history. This processed schedule can then be presented as evidence in court."
+  });
+});
+$("#hack4impact").on("click", function() {
+  swal({
+    title: "About Hack4Impact",
+    text:
+      "Hack4Impact (<a href='http://hack4impact.org'>http://hack4impact.org</a>) is a student-run nonprofit that works with other nonprofits to create socially impactful software. In Fall 2016, team members Abhinav Suri (Technical Lead), Krishna Bharathala (Product Manager), Santiago Buenahora, Rachel Hong, Katie Jiang, and Daniel Zhang worked with Community Legal Services on this application",
+    html: true
+  });
+});
+</script>
                </div>
                <div id="step-1">
                   <div class="row">
@@ -103,13 +105,13 @@
                      </div>
                   </div>
                </div>
-               <div id="step-2"> 
+               <div id="step-2">
                   <div class="row">
                      <div class="col-md-12">
                         <h3>Step 2: Select Bounding Boxes</h3>
                      </div>
                      <div class="col-md-12">
-                        <p>A bounding box is an area of interest. Click "New Box" and drag to select an area to create a new bounding box on the map. 
+                        <p>A bounding box is an area of interest. Click "New Box" and drag to select an area to create a new bounding box on the map.
                           <a href="#bounding-instructions-modal" data-toggle="modal" data-target="#bounding-instructions-modal"><span onclick="sendBEvent(1)" class="glyphicon glyphicon-info-sign upload-instructions" aria-hidden="true"></span></a></p>
                      </div>
                   </div>
@@ -119,6 +121,8 @@
                         <button class="btn btn-info" id="newBoxButton">New Box</button> &nbsp;&nbsp;&nbsp; <button class="btn btn-danger" id="cancel">Cancel</button>
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <table class="table" id="locationTable">
                         <thead>
@@ -130,13 +134,45 @@
                       </table>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group well" id="newBoxList" style="display: none">
+                          <div class="row">
+                            You can draw boxes on the map by clicking and dragging the mouse. If you already know the coordinates of boxes you would like to use, you can enter those coordinates here.
+                          </div>
+                          <div class="row">
+                            <div class='col-1'> Name: </div>
+                            <div class='col-1'>
+                                <input id='boxName' type='text' placeholder="e.g. Worksite"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class='col-1'> Northeast: (lat, lon) </div>
+                            <input id='northEastLat' type='text' placeholder="latitude"/> ,
+                            <input id='northEastLong' type='text' placeholder="longitude"/>
+                          </div>
+                          <div class="row">
+                            <div class='col-1'> Southwest: (lat, lon) </div>
+                            <input id='southWestLat' type='text' placeholder="latitude"/> ,
+                            <input id='southWestLon' type="text" placeholder="longitude"/>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <button class='btn' id='manuallyAddBox'> Add </button>
+                            </div>
+                          </div>
+
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                   <br>
                <div id="step-3">
                   <div class="row">
                      <div class="col-md-12">
                         <h3>Step 3: Submit</h3>
-                        <p>We'll look at the bounding boxes and return a CSV of all time ranges spent in those bounding boxes based on the location data.</p> 
+                        <p>We'll look at the bounding boxes and return a CSV of all time ranges spent in those bounding boxes based on the location data.</p>
 
                      </div>
                   </div>
@@ -153,25 +189,25 @@
                            <label for="startDay">Start Day of Week:</label>
                            <select class="selectpicker" id="startDay">
                               <option value="1">
-                                 Monday 
+                                 Monday
                               </option>
                               <option value="2">
-                                 Tuesday 
+                                 Tuesday
                               </option>
                               <option value="3">
-                                 Wednesday 
+                                 Wednesday
                               </option>
                               <option value="4">
-                                 Thursday 
+                                 Thursday
                               </option>
                               <option value="5">
-                                 Friday 
+                                 Friday
                               </option>
                               <option value="6">
-                                 Saturday 
+                                 Saturday
                               </option>
                               <option value="7" selected>
-                                 Sunday 
+                                 Sunday
                               </option>
                            </select>
                         </div>
@@ -278,15 +314,15 @@
     <script src="static/scripts/upload.js"></script>
     <script src="static/scripts/csv.js"></script>
     <script src="static/scripts/lib/multi-step-modal.js"></script>
-      
+
     <script>
-      sendEvent = function(x) {
-          $('#upload-instructions-modal').trigger('next.m.' + x);
-      }
-      sendBEvent = function(x) {
-          $('#bounding-instructions-modal').trigger('next.m.' + x);
-      }
-    </script>
+    sendEvent = function(x) {
+  $("#upload-instructions-modal").trigger("next.m." + x);
+};
+sendBEvent = function(x) {
+  $("#bounding-instructions-modal").trigger("next.m." + x);
+};
+</script>
 
     </body>
 </html>
