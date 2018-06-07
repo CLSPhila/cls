@@ -124,33 +124,6 @@ $("#hack4impact").on("click", function() {
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="input-group well" id="newBoxList" style="display: none">
-
-                          <div class="row">
-                            <div class='col-1'> Name: </div>
-                            <div class='col-1'>
-                                <input id='boxName' type='text'/>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class='col-1'> NE: (lat, lon) </div>
-                            <input id='northEastLat' type='text'/> ,
-                            <input id='northEastLong' type='text'/>
-                          </div>
-                          <div class="row">
-                            <div class='col-1'> SE: (lat, lon) </div>
-                            <input id='southWestLat' type='text'/> ,
-                            <input id='southWestLon'/>
-                          </div>
-                          <div class="row">
-                            <button class='btn' id='manuallyAddBox'> Add </button>
-                          </div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
                       <table class="table" id="locationTable">
                         <thead>
                           <tr>
@@ -161,6 +134,38 @@ $("#hack4impact").on("click", function() {
                       </table>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group well" id="newBoxList" style="display: none">
+                          <div class="row">
+                            You can draw boxes on the map by clicking and dragging the mouse. If you already know the coordinates of boxes you would like to use, you can enter those coordinates here.
+                          </div>
+                          <div class="row">
+                            <div class='col-1'> Name: </div>
+                            <div class='col-1'>
+                                <input id='boxName' type='text' placeholder="e.g. Worksite"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class='col-1'> Northeast: (lat, lon) </div>
+                            <input id='northEastLat' type='text' placeholder="latitude"/> ,
+                            <input id='northEastLong' type='text' placeholder="longitude"/>
+                          </div>
+                          <div class="row">
+                            <div class='col-1'> Southwest: (lat, lon) </div>
+                            <input id='southWestLat' type='text' placeholder="latitude"/> ,
+                            <input id='southWestLon' type="text" placeholder="longitude"/>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <button class='btn' id='manuallyAddBox'> Add </button>
+                            </div>
+                          </div>
+
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                   <br>
                <div id="step-3">
