@@ -1,14 +1,18 @@
 # Community Legal Services [Fall-2016]
 
-This is a Hack4Impact Project for Community Legal Services. Try it out [here](http://hack4impact.github.io/cls).
+This is a Hack4Impact Project for Community Legal Services. Try it out [here](https://clsphila.github.io/whats-my-schedule/).
 
-## Team Members
+## Hack4Impact Team Members
 * Krishna Bharathala (Project Manager)
 * Abhinav Suri (Technical Lead)
 * Santiago Buenahora
 * Rachel Hong
 * Katie Jiang
 * Daniel Zhang
+
+## CLS Team Members
+* Nate Vogel
+* Michael Hollander
 
 ## Project
 
