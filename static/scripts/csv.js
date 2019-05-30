@@ -337,7 +337,7 @@ function parseFileToCSV(file, oboeInstance) {
       document.body.appendChild(link);
       swal(
         {
-          title: "Your file has been created, buddy",
+          title: "Your file has been created",
           type: "success",
           text: displayBoxesDiv(boxes),
           html: true,
