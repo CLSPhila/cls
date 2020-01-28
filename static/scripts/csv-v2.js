@@ -126,7 +126,7 @@ $('#submitProcess').on('click', function () {
     var line = infoArray.join(",");
     lineArray.push(index == 0 ? "data:text/csv;charset=utf-8," + line : line);
   });
-  var encodedUri = lineArray.join("\n");
+  var encodedUri = lineArray.join("\r\n");
    
   var link = document.createElement("a");
   link.setAttribute("href", encodedUri);
